@@ -26,7 +26,7 @@ class MY_Model extends CI_Model
     {
         $this->load->library('form_validation');
 
-        $this->form_validation->set_error_delimeters('<small class="form-text text-danger">,</small>');
+        $this->form_validation->set_error_delimiters('<small class="form-text text-danger">,</small>');
 
         $validationRules = $this->getValidationRules();
         $this->form_validation->set_rules($validationRules);
