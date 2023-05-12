@@ -33,7 +33,7 @@ class Register_model extends MY_Model
                 'label'         => 'Email',
                 'rules'         => 'trim|required|valid_email|is_unique[user.email]',
                 'errors'        => [
-                    'is_unique' => 'Email %s sudah dipakai.'
+                    'is_unique' => '%s sudah dipakai.'
                 ]
             ],
             [

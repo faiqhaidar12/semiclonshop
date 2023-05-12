@@ -1,4 +1,3 @@
-<!-- //TODO : Pengaturan alert -->
 <?php
 $success    = $this->session->flashdata('success');
 $error        = $this->session->flashdata('error');
