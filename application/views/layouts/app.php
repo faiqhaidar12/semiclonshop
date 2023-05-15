@@ -15,7 +15,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Comme:wght@300;400&family=Roboto:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
     <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/navbar-fixed/" />
 
-    <link href="assets/libs/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="<?= base_url('/assets/libs/bootstrap/css/bootstrap.min.css') ?>" rel="stylesheet" />
 
     <!-- Favicons -->
     <link rel="apple-touch-icon" href="/docs/5.3/assets/img/favicons/apple-touch-icon.png" sizes="180x180" />
@@ -25,9 +25,9 @@
     <link rel="mask-icon" href="/docs/5.3/assets/img/favicons/safari-pinned-tab.svg" color="#712cf9" />
     <link rel="icon" href="/docs/5.3/assets/img/favicons/favicon.ico" />
     <meta name="theme-color" content="#712cf9" />
-    <link rel="stylesheet" href="assets/css/app.css" />
+    <link rel="stylesheet" href="<?= base_url('/assets/css/app.css') ?>" />
     <!-- FontAwesome Css -->
-    <link rel="stylesheet" href="assets/libs/fontawesome/css/all.min.css" />
+    <link rel="stylesheet" href=" <?= base_url('/assets/libs/fontawesome/css/all.min.css') ?> " />
 </head>
 
 <body class="bg-isi">
