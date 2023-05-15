@@ -17,7 +17,7 @@ class Category extends MY_Controller
         $data['tile']       = 'Admin : Category';
         $data['content']    = $this->category->paginate($page)->get();
         $data['total_rows']  = $this->category->count();
-        $data['pagination'] = $this->caregory->makePagination()(base_url('category'), 2, $data('total_rows'));
+        $data['pagination'] = $this->category->makePagination(base_url('category'), 2, $data['total_rows']);
         $data['page']       = 'pages/category/index';
 
         $this->view($data);

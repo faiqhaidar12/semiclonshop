@@ -35,8 +35,8 @@
                             <?php foreach ($content as $row) : ?>
                                 <tr>
                                     <td>1</td>
-                                    <td>laptop</td>
-                                    <td>laptops</td>
+                                    <td><?= $row->title ?></td>
+                                    <td><?= $row->slug ?></td>
                                     <td>
                                         <form action="#">
                                             <a href="">
@@ -55,17 +55,7 @@
                     </table>
                 </div>
                 <nav aria-label="Page navigation example">
-                    <ul class="pagination justify-content-center">
-                        <li class="page-item">
-                            <a class="page-link" href="#">Previous</a>
-                        </li>
-                        <li class="page-item"><a class="page-link" href="#">1</a></li>
-                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                        <li class="page-item">
-                            <a class="page-link" href="#">Next</a>
-                        </li>
-                    </ul>
+                    <?= $pagination ?>
                 </nav>
             </div>
         </div>
