@@ -145,7 +145,7 @@ class MY_Model extends CI_Model
 
             'full_tag_open'         => '<ul class="pagination">',
             'full_tag_close'        => '</ul>',
-            'attributes'            => ['class' => 'page_link'],
+            'attributes'            => ['class' => 'page-link'],
             'first_link'            => false,
             'last_link'             => false,
             'first_tag_open'        => '<li class="page-item">',
@@ -159,7 +159,7 @@ class MY_Model extends CI_Model
             'last_tag_open'         => '<li class="page-item">',
             'last_tag_close'        => '</li>',
             'cur_tag_open'          => '<li class="page-item active"><a href="#" class="page-link">',
-            'cur_tag_close'         => '<span class="sr-only">(current)</span></a></li>',
+            'cur_tag_close'         => '<span class="visually-hidden-focusable">(current)</span></a></li>',
             'num_tag_open'          => '<li class="page-item">',
             'num_tag_close'         => '</li>'
         ];
