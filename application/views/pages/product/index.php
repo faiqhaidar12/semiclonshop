@@ -1,5 +1,5 @@
 <main class="container">
-    <?php $this->load->view('layouts/_alert') ?>
+    <?php $this->load->view('layouts/_alert'); ?>
     <div class="row">
         <div class="col-md-10 mx-auto">
             <div class="card">
@@ -8,14 +8,14 @@
                     <a href="<?= base_url('product/create') ?>" class="btn btn-sm btn-secondary mb-1"><i class="fas fa-plus-circle"> </i> Tambah
                     </a>
                     <div class="float-end">
-                        <form action="#">
+                        <form action="<?= base_url("product/search") ?>" method="POST">
                             <div class="input-group">
-                                <input type="text" class="form-control form-control-sm text-center" placeholder="Cari" />
+                                <input type="text" name="keyword" class="form-control form-control-sm text-center" placeholder="Cari" value="<?= $this->session->userdata('keyword') ?>" />
                                 <div class="input-group-append mx-1">
                                     <button class="btn btn-secondary btn-sm" type="submit">
                                         <i class="fas fa-search"></i>
                                     </button>
-                                    <a href="#" class="btn btn-secondary btn-sm"><i class="fas fa-eraser"></i></a>
+                                    <a href="<?= base_url("product/reset") ?>" class="btn btn-secondary btn-sm"><i class="fas fa-eraser"></i></a>
                                 </div>
                             </div>
                         </form>
@@ -50,6 +50,8 @@
                                     <td>Rp<?= number_format($row->price, 0, ',', '.') ?>,-</td>
                                     <td><?= $row->is_available ? 'Tersedia' : 'Kosong' ?></td>
                                     <td>
+                                        <?= form_open(base_url("/product/delete/$row->id"), ['method' => 'POST']) ?>
+                                        <?= form_hidden('id', $row->id) ?>
                                         <a href="<?= base_url("/product/edit/$row->id") ?>">
                                             <button class="btn btn-sm">
                                                 <i class="fas fa-edit text-warning"></i>
@@ -58,6 +60,7 @@
                                         <button class="btn btn-sm" type="submit" onclick="return confirm('Apakah anda yakin?')">
                                             <i class="fas fa-trash text-danger"></i>
                                         </button>
+                                        <?= form_close() ?>
                                     </td>
                                 </tr>
                             <?php endforeach ?>

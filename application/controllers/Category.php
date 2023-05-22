@@ -14,7 +14,7 @@ class Category extends MY_Controller
 
     public function index($page = null)
     {
-        $data['tile']       = 'Admin : Category';
+        $data['title']       = 'Admin : Category';
         $data['content']    = $this->category->paginate($page)->get();
         $data['total_rows']  = $this->category->count();
         $data['pagination'] = $this->category->makePagination(base_url('category'), 2, $data['total_rows']);
@@ -31,7 +31,7 @@ class Category extends MY_Controller
         }
 
         $keyword = $this->session->userdata('keyword');
-        $data['tile']       = 'Admin : Category';
+        $data['title']       = 'Admin : Category';
         $data['content']    = $this->category->like('title', $keyword)->paginate($page)->get();
         $data['total_rows']  = $this->category->like('title', $keyword)->count();
         $data['pagination'] = $this->category->makePagination(base_url('category/search'), 3, $data['total_rows']);
