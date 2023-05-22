@@ -1,10 +1,10 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 15, 2023 at 04:06 AM
--- Server version: 10.4.27-MariaDB
+-- Generation Time: May 22, 2023 at 05:02 AM
+-- Server version: 10.4.28-MariaDB
 -- PHP Version: 7.4.33
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -41,7 +41,36 @@ INSERT INTO `category` (`id`, `slug`, `title`) VALUES
 (1, 'smartphones', 'Smartphones'),
 (2, 'console', 'Console'),
 (3, 'games-console', 'Games Console'),
-(4, 'laptop', 'Laptop');
+(4, 'laptop', 'Laptop'),
+(5, 'mouse-gaming', 'mouse gaming');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `product`
+--
+
+CREATE TABLE `product` (
+  `id` int(11) NOT NULL,
+  `id_category` int(11) NOT NULL,
+  `slug` varchar(255) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `description` varchar(255) NOT NULL,
+  `price` int(11) NOT NULL,
+  `is_available` tinyint(1) NOT NULL DEFAULT 1,
+  `image` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `product`
+--
+
+INSERT INTO `product` (`id`, `id_category`, `slug`, `title`, `description`, `price`, `is_available`, `image`) VALUES
+(1, 1, 'new-iphone-10', 'new iphone 10', 'smartphone from Apple', 6000000, 1, 'smartphone.png'),
+(2, 4, 'new-asus-laptop', 'new asus laptop', 'laptop terbaru dari asus', 4000000, 1, 'laptop.png'),
+(3, 2, 'nintendo-switch-lite', 'Nintendo Switch Lite', 'new switch lite', 2900000, 1, 'nintendo-switch-lite-20230519101419.jpg'),
+(7, 2, 'nintendo-switch-oled', 'Nintendo Switch Oled', 'New Switch Oled', 4900000, 1, 'nintendo-switch-oled-20230519102443.jpg'),
+(8, 2, 'nintendo-switch-v2', 'Nintendo Switch V2', 'New Switch V2', 3900000, 1, 'nintendo-switch-v2-20230519102642.jpg');
 
 -- --------------------------------------------------------
 
@@ -80,6 +109,12 @@ ALTER TABLE `category`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `product`
+--
+ALTER TABLE `product`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `user`
 --
 ALTER TABLE `user`
@@ -93,7 +128,13 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `product`
+--
+ALTER TABLE `product`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `user`
