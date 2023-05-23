@@ -22,13 +22,13 @@
                     </div>
                 </div>
                 <div class="card-body table-responsive">
-                    <table class="table table-borderless">
+                    <table class="table table-hover align-middle">
                         <thead>
                             <tr>
                                 <th scope="col">#</th>
                                 <th scope="col">Title</th>
                                 <th scope="col">Slug</th>
-                                <th scope="col">Action</th>
+                                <th scope="col" class="text-center">Action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -38,7 +38,7 @@
                                     <td><?= $no ?></td>
                                     <td><?= $row->title ?></td>
                                     <td><?= $row->slug ?></td>
-                                    <td class="d-flex align-items-center">
+                                    <td class="text-center">
                                         <a href="<?= base_url("category/edit/$row->id") ?>">
                                             <i class="fas fa-edit text-warning"></i>
                                         </a>

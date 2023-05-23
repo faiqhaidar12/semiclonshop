@@ -9,7 +9,7 @@
                     <?= form_open_multipart($form_action, ['method' => 'POST']) ?>
                     <?= isset($input->id) ? form_hidden('id', $input->id) : '' ?>
                     <div class="form-group">
-                        <label for="">Formilir Produk</label>
+                        <label for="">Produk</label>
                         <?= form_input('title', $input->title, ['class' => 'form-control', 'id' => 'title', 'onkeyup' => 'createSlug()', 'required' => true, 'autofocus' => true]) ?>
                         <small class="form-text text-danger"><?= form_error('title') ?></small>
                     </div>

@@ -22,7 +22,7 @@
                     </div>
                 </div>
                 <div class="card-body table-responsive">
-                    <table class="table table-borderless">
+                    <table class="table table-hover align-middle">
                         <thead>
                             <tr>
                                 <th scope="col">#</th>
@@ -30,7 +30,7 @@
                                 <th scope="col">Kategori</th>
                                 <th scope="col">Harga</th>
                                 <th scope="col">Stock</th>
-                                <th scope="col">Action</th>
+                                <th scope="col" class="text-center">Action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -49,7 +49,7 @@
                                     </td>
                                     <td>Rp<?= number_format($row->price, 0, ',', '.') ?>,-</td>
                                     <td><?= $row->is_available ? 'Tersedia' : 'Kosong' ?></td>
-                                    <td class="d-flex align-items-center">
+                                    <td class="text-center">
                                         <a href="<?= base_url("/product/edit/$row->id") ?>">
                                             <i class="fas fa-edit text-warning"></i>
                                         </a>
@@ -64,7 +64,6 @@
                             <?php endforeach ?>
                         </tbody>
                     </table>
-                    <hr>
                 </div>
                 <nav aria-label="Page navigation example" class="mx-2">
                     <?= $pagination ?>

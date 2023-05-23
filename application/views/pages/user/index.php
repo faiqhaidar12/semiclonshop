@@ -5,7 +5,7 @@
             <div class="card">
                 <div class="card-header">
                     <span>Pengguna</span>
-                    <a href="/admin-users-form.html" class="btn btn-sm btn-secondary mb-1"><i class="fas fa-plus-circle"> </i> Tambah
+                    <a href="<?= base_url('user/create') ?>" class="btn btn-sm btn-secondary mb-1"><i class="fas fa-plus-circle"> </i> Tambah
                     </a>
                     <div class="float-end">
                         <form action="#">
@@ -22,7 +22,7 @@
                     </div>
                 </div>
                 <div class="card-body table-responsive">
-                    <table class="table table-borderless">
+                    <table class="table table-hover align-middle">
                         <thead>
                             <tr>
                                 <th scope="col">#</th>
@@ -30,7 +30,7 @@
                                 <th scope="col">Email</th>
                                 <th scope="col">Role</th>
                                 <th scope="col">Status</th>
-                                <th scope="col">Action</th>
+                                <th scope="col" class="text-center">Action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -47,17 +47,13 @@
                                     <td><?= $row->email ?></td>
                                     <td><?= $row->role ?></td>
                                     <td><?= $row->is_active ? 'Aktif' : 'Tidak Aktif' ?></td>
-                                    <td class="d-flex align-items-center">
-                                        <form action="#">
-                                            <a href="">
-                                                <button class="btn btn-sm">
-                                                    <i class="fas fa-edit text-warning"></i>
-                                                </button>
-                                            </a>
-                                            <button class="btn btn-sm" type="submit" onclick="return confirm('Apakah anda yakin?')">
-                                                <i class="fas fa-trash text-danger"></i>
-                                            </button>
-                                        </form>
+                                    <td class="text-center">
+                                        <a href="">
+                                            <i class="fas fa-edit text-warning"></i>
+                                        </a>
+                                        <button class="btn btn-sm" type="submit" onclick="return confirm('Apakah anda yakin?')">
+                                            <i class="fas fa-trash text-danger"></i>
+                                        </button>
                                     </td>
                                 </tr>
                             <?php endforeach ?>
@@ -65,7 +61,7 @@
                     </table>
                     <hr>
                 </div>
-                <nav aria-label="Page navigation example">
+                <nav aria-label="Page navigation example " class="mx-2">
                     <?= $pagination ?>
                 </nav>
             </div>

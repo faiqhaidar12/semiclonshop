@@ -1,10 +1,10 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 23, 2023 at 10:04 AM
--- Server version: 10.4.28-MariaDB
+-- Generation Time: May 23, 2023 at 10:58 AM
+-- Server version: 10.4.22-MariaDB
 -- PHP Version: 7.4.33
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -31,7 +31,7 @@ CREATE TABLE `category` (
   `id` int(11) NOT NULL,
   `slug` varchar(255) NOT NULL,
   `title` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `category`
@@ -60,7 +60,7 @@ CREATE TABLE `product` (
   `price` int(11) NOT NULL,
   `is_available` tinyint(1) NOT NULL DEFAULT 1,
   `image` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `product`
@@ -87,7 +87,7 @@ CREATE TABLE `user` (
   `role` enum('admin','member') NOT NULL,
   `is_active` tinyint(1) NOT NULL DEFAULT 1,
   `image` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `user`
@@ -98,7 +98,8 @@ INSERT INTO `user` (`id`, `name`, `email`, `password`, `role`, `is_active`, `ima
 (3, 'faiq', 'faiq1@gmail.com', '$2y$10$jPnc22WtvGSKS9R1PWIE8Oo8vzGWnZpoEaOBD0VwQ2JORLlphU7b.', 'member', 1, ''),
 (4, 'faiq haidar', 'haidar@gmail.com', '$2y$10$6JrkDTcYXlnlGJAEVscqXOadLesjjDDgMru1yDMJzYBgQkyOR08Uu', 'member', 1, ''),
 (5, 'Ali', 'ali@gmail.com', '$2y$10$09GTuLjHNM6VM0xYg4IB8O07Lfh.ocdK9VR7tyYPMcgoCaLz2tu.u', 'member', 1, ''),
-(6, 'Ali', 'ali1@gmail.com', '$2y$10$S8ngrPxrDldDHUCz7IraeevdVSjzXwLcpz6q6RPxBMJGC08jESoRG', 'member', 1, '');
+(6, 'Ali', 'ali1@gmail.com', '$2y$10$S8ngrPxrDldDHUCz7IraeevdVSjzXwLcpz6q6RPxBMJGC08jESoRG', 'member', 1, ''),
+(7, 'Admin', 'admin@gmail.com', '$2y$10$GjUpu5nLhE196y5T81RlUe7dwUKx15fxRkD5lXEdby4E9gMTLKuXe', 'admin', 1, NULL);
 
 --
 -- Indexes for dumped tables
@@ -142,7 +143,7 @@ ALTER TABLE `product`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
