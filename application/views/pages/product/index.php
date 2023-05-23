@@ -1,5 +1,5 @@
 <main class="container">
-    <?php $this->load->view('layouts/_alert'); ?>
+    <?php $this->load->view('layouts/_alert') ?>
     <div class="row">
         <div class="col-md-10 mx-auto">
             <div class="card">
@@ -22,7 +22,7 @@
                     </div>
                 </div>
                 <div class="card-body table-responsive">
-                    <table class="table">
+                    <table class="table table-borderless">
                         <thead>
                             <tr>
                                 <th scope="col">#</th>
@@ -49,14 +49,12 @@
                                     </td>
                                     <td>Rp<?= number_format($row->price, 0, ',', '.') ?>,-</td>
                                     <td><?= $row->is_available ? 'Tersedia' : 'Kosong' ?></td>
-                                    <td>
+                                    <td class="d-flex align-items-center">
+                                        <a href="<?= base_url("/product/edit/$row->id") ?>">
+                                            <i class="fas fa-edit text-warning"></i>
+                                        </a>
                                         <?= form_open(base_url("/product/delete/$row->id"), ['method' => 'POST']) ?>
                                         <?= form_hidden('id', $row->id) ?>
-                                        <a href="<?= base_url("/product/edit/$row->id") ?>">
-                                            <button class="btn btn-sm">
-                                                <i class="fas fa-edit text-warning"></i>
-                                            </button>
-                                        </a>
                                         <button class="btn btn-sm" type="submit" onclick="return confirm('Apakah anda yakin?')">
                                             <i class="fas fa-trash text-danger"></i>
                                         </button>
@@ -66,9 +64,11 @@
                             <?php endforeach ?>
                         </tbody>
                     </table>
+                    <hr>
                 </div>
-                <nav aria-label="Page navigation example">
+                <nav aria-label="Page navigation example" class="mx-2">
                     <?= $pagination ?>
+                </nav>
             </div>
         </div>
     </div>

@@ -22,7 +22,7 @@
                     </div>
                 </div>
                 <div class="card-body table-responsive">
-                    <table class="table">
+                    <table class="table table-borderless">
                         <thead>
                             <tr>
                                 <th scope="col">#</th>
@@ -33,19 +33,17 @@
                         </thead>
                         <tbody>
                             <?php $no = 0;
-                            foreach ($content as $row) : $no++ ?>
+                            foreach ($content as $row) : $no++; ?>
                                 <tr>
                                     <td><?= $no ?></td>
                                     <td><?= $row->title ?></td>
                                     <td><?= $row->slug ?></td>
-                                    <td>
+                                    <td class="d-flex align-items-center">
+                                        <a href="<?= base_url("category/edit/$row->id") ?>">
+                                            <i class="fas fa-edit text-warning"></i>
+                                        </a>
                                         <?= form_open("category/delete/$row->id", ['method' => 'POST']) ?>
                                         <?= form_hidden('id', $row->id) ?>
-                                        <a href="<?= base_url("category/edit/$row->id") ?>">
-                                            <button class="btn btn-sm">
-                                                <i class="fas fa-edit text-warning"></i>
-                                            </button>
-                                        </a>
                                         <button class="btn btn-sm" type="submit" onclick="return confirm('Apakah anda yakin?')">
                                             <i class="fas fa-trash text-danger"></i>
                                         </button>
@@ -55,6 +53,7 @@
                             <?php endforeach ?>
                         </tbody>
                     </table>
+                    <hr>
                 </div>
                 <nav aria-label="Page navigation example" class="mx-2">
                     <?= $pagination ?>

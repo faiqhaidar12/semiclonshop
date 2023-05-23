@@ -15,13 +15,24 @@ class Product extends MY_Controller
 
     public function index($page = null)
     {
-        $data['title']      = 'Admin: Produk';
-        $data['content']    = $this->product->select(
-            ['product.id', 'product.title AS product_title', 'product.image', 'product.price', 'product.is_available', 'category.title AS category_title']
-        )->join('category')->paginate($page)->get();
+        $data['title']  = 'Admin: Produk';
+        $data['content'] = $this->product->select(
+            [
+                'product.id', 'product.title AS product_title', 'product.image',
+                'product.price', 'product.is_available',
+                'category.title AS category_title'
+            ]
+        )
+            ->join('category')
+            ->paginate($page)
+            ->get();
         $data['total_rows'] = $this->product->count();
-        $data['pagination'] = $this->product->makePagination(base_url('product'), 2, $data['total_rows']);
-        $data['page']       = 'pages/product/index';
+        $data['pagination'] = $this->product->makePagination(
+            base_url('product'),
+            2,
+            $data['total_rows']
+        );
+        $data['page']  = 'pages/product/index';
 
         $this->view($data);
     }
