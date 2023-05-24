@@ -40,7 +40,16 @@
     <?php $this->load->view($page); ?>
     <!-- End Content -->
 
-
+    <script>
+        // Auto close the alert after 5 seconds (5000 milliseconds)
+        setTimeout(function() {
+            document.getElementById('autoCloseAlert').classList.remove('show');
+            document.getElementById('autoCloseAlert').classList.add('hide');
+            setTimeout(function() {
+                document.getElementById('autoCloseAlert').remove();
+            }, 500);
+        }, 5000);
+    </script>
     <script src="<?= base_url() ?>assets/libs/jquery/jquery-3.6.4.min.js"></script>
     <script src="<?= base_url() ?>assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="<?= base_url() ?>assets/js/app.js"></script>

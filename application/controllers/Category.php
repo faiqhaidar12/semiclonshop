@@ -9,16 +9,22 @@ class Category extends MY_Controller
     public function __construct()
     {
         parent::__construct();
+        $role   = $this->session->userdata('role');
+        if ($role != 'admin') {
+            $this->session->set_flashdata('warning', 'Silahkan login sebagai admin terlebih dahulu!');
+            redirect(base_url('/'));
+            return;
+        }
     }
 
 
     public function index($page = null)
     {
-        $data['title']       = 'Admin : Category';
-        $data['content']    = $this->category->paginate($page)->get();
-        $data['total_rows']  = $this->category->count();
-        $data['pagination'] = $this->category->makePagination(base_url('category'), 2, $data['total_rows']);
-        $data['page']       = 'pages/category/index';
+        $data['title']          = 'Admin : Category';
+        $data['content']        = $this->category->paginate($page)->get();
+        $data['total_rows']     = $this->category->count();
+        $data['pagination']     = $this->category->makePagination(base_url('category'), 2, $data['total_rows']);
+        $data['page']           = 'pages/category/index';
 
         $this->view($data);
     }
@@ -30,10 +36,10 @@ class Category extends MY_Controller
             redirect(base_url('category'));
         }
 
-        $keyword = $this->session->userdata('keyword');
-        $data['title']       = 'Admin : Category';
-        $data['content']    = $this->category->like('title', $keyword)->paginate($page)->get();
-        $data['total_rows']  = $this->category->like('title', $keyword)->count();
+        $keyword                = $this->session->userdata('keyword');
+        $data['title']          = 'Admin : Category';
+        $data['content']        = $this->category->like('title', $keyword)->paginate($page)->get();
+        $data['total_rows']     = $this->category->like('title', $keyword)->count();
         if ($data['total_rows'] == 0) {
             $this->session->set_flashdata('error', 'Data tidak ditemukan.');
             redirect(base_url('category'));

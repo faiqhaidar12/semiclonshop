@@ -159,3 +159,13 @@ body {
 .bg-hott{
   background-color: #D21312;
 }
+
+.smooth-fade.show {
+  opacity: 1;
+  transition: opacity 0.5s ease-in;
+}
+
+.smooth-fade.hide {
+  opacity: 0;
+  transition: opacity 0.5s ease-out;
+}

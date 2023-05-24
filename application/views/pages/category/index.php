@@ -53,7 +53,6 @@
                             <?php endforeach ?>
                         </tbody>
                     </table>
-                    <hr>
                 </div>
                 <nav aria-label="Page navigation example" class="mx-2">
                     <?= $pagination ?>

@@ -10,13 +10,19 @@ class Product extends MY_Controller
     public function __construct()
     {
         parent::__construct();
+        $role   = $this->session->userdata('role');
+        if ($role != 'admin') {
+            $this->session->set_flashdata('warning', 'Silahkan login sebagai admin terlebih dahulu!');
+            redirect(base_url('/'));
+            return;
+        }
     }
 
 
     public function index($page = null)
     {
-        $data['title']  = 'Admin: Produk';
-        $data['content'] = $this->product->select(
+        $data['title']      = 'Admin: Produk';
+        $data['content']    = $this->product->select(
             [
                 'product.id', 'product.title AS product_title', 'product.image',
                 'product.price', 'product.is_available',
@@ -45,12 +51,12 @@ class Product extends MY_Controller
             redirect(base_url('product'));
         }
 
-        $keyword = $this->session->userdata('keyword');
-        $data['title']       = 'Admin : Product';
-        $data['content']    = $this->product->select(
+        $keyword                = $this->session->userdata('keyword');
+        $data['title']          = 'Admin : Product';
+        $data['content']        = $this->product->select(
             ['product.id', 'product.title AS product_title', 'product.image', 'product.price', 'product.is_available', 'category.title AS category_title']
         )->join('category')->like('product.title', $keyword)->orLike('description', $keyword)->paginate($page)->get();
-        $data['total_rows']  = $this->product->like('product.title', $keyword)->orLike('description', $keyword)->count();
+        $data['total_rows']     = $this->product->like('product.title', $keyword)->orLike('description', $keyword)->count();
         if ($data['total_rows'] == 0) {
             $this->session->set_flashdata('error', 'Data tidak ditemukan.');
             redirect(base_url('product'));
@@ -77,10 +83,10 @@ class Product extends MY_Controller
         }
 
         if (!$this->product->validate()) {
-            $data['title']   = 'Tambah Produk';
-            $data['input']   = $input;
-            $data['form_action'] = base_url('product/create');
-            $data['page']   = 'pages/product/form';
+            $data['title']          = 'Tambah Produk';
+            $data['input']          = $input;
+            $data['form_action']    = base_url('product/create');
+            $data['page']           = 'pages/product/form';
 
             $this->view($data);
             return;
@@ -178,9 +184,9 @@ class Product extends MY_Controller
 
     public function unique_slug()
     {
-        $slug       = $this->input->post('slug');
-        $id         = $this->input->post('id');
-        $product   = $this->product->where('slug', $slug)->first();
+        $slug           = $this->input->post('slug');
+        $id             = $this->input->post('id');
+        $product        = $this->product->where('slug', $slug)->first();
 
         if ($product) {
             if ($id == $product->id) {

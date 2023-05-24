@@ -9,6 +9,12 @@ class User extends MY_Controller
     public function __construct()
     {
         parent::__construct();
+        $role   = $this->session->userdata('role');
+        if ($role != 'admin') {
+            $this->session->set_flashdata('warning', 'Silahkan login sebagai admin terlebih dahulu!');
+            redirect(base_url('/'));
+            return;
+        }
     }
 
 
@@ -102,7 +108,7 @@ class User extends MY_Controller
                 }
                 $data['input']->image = $upload['file_name'];
             } else {
-                redirect(base_url("user/edit/{$id}"));
+                redirect(base_url("user/edit/$id"));
             }
         }
 
@@ -116,9 +122,9 @@ class User extends MY_Controller
 
     public function unique_email()
     {
-        $email       = $this->input->post('email');
-        $id         = $this->input->post('id');
-        $user   = $this->user->where('email', $email)->first();
+        $email          = $this->input->post('email');
+        $id             = $this->input->post('id');
+        $user           = $this->user->where('email', $email)->first();
 
         if ($user) {
             if ($id == $user->id) {
