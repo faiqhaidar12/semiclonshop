@@ -1,3 +1,8 @@
+<?php
+$role   = $this->session->userdata('role');
+if ($role != 'admin') {
+}
+?>
 <nav class="navbar navbar-expand-lg navbar-light fixed-top bg-header ">
     <div class="container">
         <a class="navbar-brand" href="#">Semiclon Shop</a>
@@ -9,15 +14,18 @@
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="/semiclonshop">Home</a>
                 </li>
-                <li class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" id="dropdown-1" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Manage</a>
-                    <div class="dropdown-menu" aria-labelledby="dropdown-1">
-                        <a href="<?= base_url('category') ?>" class="dropdown-item">Kategori</a>
-                        <a href="<?= base_url('product') ?>" class="dropdown-item">Produk</a>
-                        <a href="/admin-order.html" class="dropdown-item">Order</a>
-                        <a href="<?= base_url('user') ?>" class="dropdown-item">Pengguna</a>
-                    </div>
-                </li>
+
+                <?php if ($role === 'admin') : ?>
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" id="dropdown-1" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Manage</a>
+                        <div class="dropdown-menu" aria-labelledby="dropdown-1">
+                            <a href="<?= base_url('category') ?>" class="dropdown-item">Kategori</a>
+                            <a href="<?= base_url('product') ?>" class="dropdown-item">Produk</a>
+                            <a href="/admin-order.html" class="dropdown-item">Order</a>
+                            <a href="<?= base_url('user') ?>" class="dropdown-item">Pengguna</a>
+                        </div>
+                    </li>
+                <?php endif ?>
             </ul>
             <ul class="navbar-nav">
                 <li class="nav-item">
