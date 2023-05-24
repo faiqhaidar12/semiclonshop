@@ -34,6 +34,10 @@ class Category extends MY_Controller
         $data['title']       = 'Admin : Category';
         $data['content']    = $this->category->like('title', $keyword)->paginate($page)->get();
         $data['total_rows']  = $this->category->like('title', $keyword)->count();
+        if ($data['total_rows'] == 0) {
+            $this->session->set_flashdata('error', 'Data tidak ditemukan.');
+            redirect(base_url('category'));
+        }
         $data['pagination'] = $this->category->makePagination(base_url('category/search'), 3, $data['total_rows']);
         $data['page']       = 'pages/category/index';
 

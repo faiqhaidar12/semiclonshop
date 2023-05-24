@@ -8,17 +8,17 @@
                     <a href="<?= base_url('user/create') ?>" class="btn btn-sm btn-secondary mb-1"><i class="fas fa-plus-circle"> </i> Tambah
                     </a>
                     <div class="float-end">
-                        <form action="#">
-                            <div class="input-group">
-                                <input type="text" class="form-control form-control-sm text-center" placeholder="Cari" />
-                                <div class="input-group-append mx-1">
-                                    <button class="btn btn-secondary btn-sm" type="submit">
-                                        <i class="fas fa-search"></i>
-                                    </button>
-                                    <a href="#" class="btn btn-secondary btn-sm"><i class="fas fa-eraser"></i></a>
-                                </div>
+                        <?= form_open(base_url('user/search'), ['method' => 'POST']) ?>
+                        <div class="input-group">
+                            <input name="keyword" type="text" class="form-control form-control-sm text-center" placeholder="Cari" value="<?= $this->session->userdata('keyword') ?>" />
+                            <div class="input-group-append mx-1">
+                                <button class="btn btn-secondary btn-sm" type="submit">
+                                    <i class="fas fa-search"></i>
+                                </button>
+                                <a href="<?= base_url('user/reset') ?>" class="btn btn-secondary btn-sm"><i class="fas fa-eraser"></i></a>
                             </div>
-                        </form>
+                        </div>
+                        <?= form_close() ?>
                     </div>
                 </div>
                 <div class="card-body table-responsive">
@@ -48,18 +48,20 @@
                                     <td><?= $row->role ?></td>
                                     <td><?= $row->is_active ? 'Aktif' : 'Tidak Aktif' ?></td>
                                     <td class="text-center">
-                                        <a href="">
+                                        <a href="<?= base_url("user/edit/$row->id") ?>">
                                             <i class="fas fa-edit text-warning"></i>
                                         </a>
+                                        <?= form_open(base_url("/user/delete/$row->id"), ['method' => 'POST']) ?>
+                                        <?= form_hidden('id', $row->id) ?>
                                         <button class="btn btn-sm" type="submit" onclick="return confirm('Apakah anda yakin?')">
                                             <i class="fas fa-trash text-danger"></i>
                                         </button>
+                                        <?= form_close() ?>
                                     </td>
                                 </tr>
                             <?php endforeach ?>
                         </tbody>
                     </table>
-                    <hr>
                 </div>
                 <nav aria-label="Page navigation example " class="mx-2">
                     <?= $pagination ?>
