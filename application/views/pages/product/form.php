@@ -16,7 +16,7 @@
                     <div class="form-group">
                         <label for="">Deskripsi</label>
                         <?= form_textarea(['name' => 'description', 'value' => $input->description, 'row' => 4, 'class' => 'form-control']) ?>
-                        <small class="form-text text-danger"><?= form_error('description') ?></small>
+                        <?= form_error('description') ?>
                     </div>
                     <div class="form-group">
                         <label for="">Harga</label>
@@ -47,8 +47,8 @@
                         <?php if ($this->session->flashdata('image_error')) : ?>
                             <small class="form-text text-danger"><?= $this->session->flashdata('image_error') ?></small>
                         <?php endif ?>
-                        <?php if ($input->image) : ?>
-                            <img src="<?= base_url("/images/product/$input->image") ?>" alt="gambar" height="150">
+                        <?php if (isset($input->image)) : ?>
+                            <img src="<?= base_url("images/product/$input->image") ?>" alt="" height="150">
                         <?php endif ?>
                     </div>
                     <div class="form-group">

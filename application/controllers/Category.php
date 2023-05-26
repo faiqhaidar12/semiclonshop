@@ -33,7 +33,11 @@ class Category extends MY_Controller
         if (isset($_POST['keyword'])) {
             $this->session->set_userdata('keyword', $this->input->post('keyword'));
         } else {
-            redirect(base_url('category'));
+            if ($this->session->userdata('keyword')) {
+                $this->session->userdata('keyword');
+            } else {
+                redirect(base_url('category'));
+            }
         }
 
         $keyword                = $this->session->userdata('keyword');

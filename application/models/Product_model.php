@@ -40,9 +40,9 @@ class Product_model extends MY_Model
                 'rules'     => 'trim|required'
             ],
             [
-                'field'     => 'description',
-                'label'     => 'Deskripsi',
-                'rules'     => 'trim|required'
+                'field'    => 'description',
+                'label'    => 'Deskripsi',
+                'rules'    => 'trim|required|max_length[455]'
             ],
             [
                 'field'     => 'price',
