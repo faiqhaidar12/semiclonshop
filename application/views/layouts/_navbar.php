@@ -3,7 +3,7 @@ $role   = $this->session->userdata('role');
 if ($role != 'admin') {
 }
 ?>
-<nav class="navbar navbar-expand-lg navbar-light fixed-top bg-header ">
+<nav class="navbar navbar-expand-lg navbar-light fixed-top bg-header">
     <div class="container">
         <a class="navbar-brand" href="#">Semiclon Shop</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -29,7 +29,7 @@ if ($role != 'admin') {
             </ul>
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a href="/cart.html" class="nav-link"><i class="fas fa fa-shopping-cart"></i> Cart (0)</a>
+                    <a href="<?= base_url('/cart') ?>" class="nav-link"><i class="fas fa fa-shopping-cart"></i> Cart <span class="text-danger">(<?= getCart(); ?>)</span></a>
                 </li>
                 <?php if (!$this->session->userdata('is_login')) : ?>
                     <li class="nav-item">

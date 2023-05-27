@@ -6,7 +6,7 @@
                 <div class="col-md-12">
                     <div class="card mb-3">
                         <div class="card-body">
-                            Kategori: <strong><?= isset($category) ? $category : 'Semua Kategori' ?></strong>
+                            Kategori: <strong class="text-decoration-underline"><?= isset($category) ? $category : 'Semua Kategori'  ?></strong>
                             <span class="float-end">Urutkan Harga:
                                 <a href="<?= base_url("shop/sortby/asc") ?>" class="badge bg-primary"><i class="fas fa-arrow-down"> </i> Termurah</a>
                                 |
@@ -21,7 +21,7 @@
                     <!-- Card Komponen -->
                     <div class="col-md-6 card-group">
                         <div class="card mb-3">
-                            <img src="<?= $row->image ? base_url("images/product/$row->image") : base_url("images/product/default.png") ?>" alt="gambar" height="290" class="card-img-top" />
+                            <img src="<?= $row->image ? base_url("images/product/$row->image") : base_url("images/product/default.png") ?>" alt="gambar" height="" class="card-img-top" />
                             <div class="card-body">
                                 <h5 class="card-title"><?= $row->product_title ?></h5>
                                 <p class="card-text"><strong>Rp<?= number_format($row->price, 0, ',', '.') ?>,-</strong></p>
@@ -31,9 +31,10 @@
                                 <a href="<?= base_url("shop/category/$row->category_slug") ?>" class="badge bg-primary"><i class="fas fa-tags"></i> <?= $row->category_title ?></a>
                             </div>
                             <div class="card-footer">
-                                <form action="">
+                                <form action="<?= base_url('cart/add') ?>" method="POST">
+                                    <input type="hidden" name="id_product" value="<?= $row->id ?>" />
                                     <div class="input-group">
-                                        <input type="number" class="form-control" />
+                                        <input type="number" name="qty" value="1" class="form-control" />
                                         <div class="input-group-append">
                                             <button class="btn btn-primary mx-1">
                                                 Add to Cart

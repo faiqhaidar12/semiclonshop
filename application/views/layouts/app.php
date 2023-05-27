@@ -2,7 +2,6 @@
 <html lang="en" data-bs-theme="auto">
 
 <head>
-    <script src="/docs/5.3/assets/js/color-modes.js"></script>
 
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -18,12 +17,6 @@
     <link href="<?= base_url('/assets/libs/bootstrap/css/bootstrap.min.css') ?>" rel="stylesheet" />
 
     <!-- Favicons -->
-    <link rel="apple-touch-icon" href="/docs/5.3/assets/img/favicons/apple-touch-icon.png" sizes="180x180" />
-    <link rel="icon" href="/docs/5.3/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png" />
-    <link rel="icon" href="/docs/5.3/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png" />
-    <link rel="manifest" href="/docs/5.3/assets/img/favicons/manifest.json" />
-    <link rel="mask-icon" href="/docs/5.3/assets/img/favicons/safari-pinned-tab.svg" color="#712cf9" />
-    <link rel="icon" href="/docs/5.3/assets/img/favicons/favicon.ico" />
     <meta name="theme-color" content="#712cf9" />
     <link rel="stylesheet" href="<?= base_url('/assets/css/app.css') ?>" />
     <!-- FontAwesome Css -->
@@ -41,14 +34,20 @@
     <!-- End Content -->
 
     <script>
-        // Auto close the alert after 5 seconds (5000 milliseconds)
-        setTimeout(function() {
-            document.getElementById('autoCloseAlert').classList.remove('show');
-            document.getElementById('autoCloseAlert').classList.add('hide');
+        // Cek apakah elemen dengan ID 'autoCloseAlert' ada sebelum mengakses properti classList
+        var alertElement = document.getElementById('autoCloseAlert');
+        if (alertElement !== null) {
+            // Auto close the alert after 5 seconds (5000 milliseconds)
             setTimeout(function() {
-                document.getElementById('autoCloseAlert').remove();
-            }, 500);
-        }, 5000);
+                alertElement.classList.remove('show');
+                alertElement.classList.add('hide');
+                setTimeout(function() {
+                    alertElement.remove();
+                }, 500);
+            }, 5000);
+        }
+    </script>
+
     </script>
     <script src="<?= base_url() ?>assets/libs/jquery/jquery-3.6.4.min.js"></script>
     <script src="<?= base_url() ?>assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>

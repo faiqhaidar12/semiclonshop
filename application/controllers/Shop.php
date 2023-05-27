@@ -67,7 +67,7 @@ class Shop extends MY_Controller
             if ($this->session->userdata('keyword')) {
                 $this->session->userdata('keyword');
             } else {
-                redirect(base_url('search'));
+                redirect(base_url("home/2"));
             }
         }
 
