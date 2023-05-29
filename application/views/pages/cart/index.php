@@ -29,7 +29,7 @@
                                         <form action="<?= base_url("cart/update/$row->id") ?>" method="POST">
                                             <input type="hidden" name="id" value="<?= $row->id ?>">
                                             <div class="input-group">
-                                                <input type="number" name="qty" class="form-control text-center " value="<?= $row->qty ?>" />
+                                                <input type="number" name="qty" class="form-control text-center " min="0" oninput="validasiQty(this)" value="<?= $row->qty ?>" />
                                                 <div class="input-group-append mx-1">
                                                     <button type="submit" class="btn btn-info">
                                                         <i class="fas fa-check"></i>
@@ -55,7 +55,7 @@
                     </table>
                 </div>
                 <div class="card-footer">
-                    <a href="/checkout.html" class="btn btn-success float-end">
+                    <a href="<?= base_url('/checkout') ?>" class="btn btn-success float-end">
                         Pembayaran <i class="fas fa-angle-right"></i></a>
                     <a href="<?= base_url('/') ?>" class="btn btn-warning text-white float-start"><i class="fas fa-angle-left"></i> Kembali Belanja</a>
                 </div>

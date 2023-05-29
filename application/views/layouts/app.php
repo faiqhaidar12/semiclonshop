@@ -13,6 +13,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Comme:wght@300;400&family=Roboto:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
     <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/navbar-fixed/" />
+    <link rel="icon" href="<?= base_url('assets/favicon.png'); ?>" type="image/png">
+
 
     <link href="<?= base_url('/assets/libs/bootstrap/css/bootstrap.min.css') ?>" rel="stylesheet" />
 
@@ -47,7 +49,13 @@
             }, 5000);
         }
     </script>
-
+    <script>
+        function validasiQty(input) {
+            if (input.value < 0) {
+                input.value = 0; // Mengatur nilai input menjadi 0 jika nilainya kurang dari 0
+            }
+        }
+    </script>
     </script>
     <script src="<?= base_url() ?>assets/libs/jquery/jquery-3.6.4.min.js"></script>
     <script src="<?= base_url() ?>assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>

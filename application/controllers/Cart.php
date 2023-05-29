@@ -12,6 +12,7 @@ class Cart extends MY_Controller
         $this->id   = $this->session->userdata('id');
 
         if (!$is_login) {
+            $this->session->set_flashdata('error', 'Silahkan login terlebih dahulu!');
             redirect(base_url());
             return;
         }

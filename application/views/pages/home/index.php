@@ -34,9 +34,9 @@
                                 <form action="<?= base_url('cart/add') ?>" method="POST">
                                     <input type="hidden" name="id_product" value="<?= $row->id ?>" />
                                     <div class="input-group">
-                                        <input type="number" name="qty" value="1" class="form-control" />
+                                        <input type="number" name="qty" value="1" class="form-control" min="0" oninput="validasiQty(this)" />
                                         <div class="input-group-append">
-                                            <button class="btn btn-primary mx-1">
+                                            <button class="btn btn-primary mx-1 ">
                                                 Add to Cart
                                             </button>
                                         </div>
