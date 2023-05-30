@@ -5,23 +5,23 @@ if ($role != 'admin') {
 ?>
 <nav class="navbar navbar-expand-lg navbar-light fixed-top bg-header">
     <div class="container">
-        <a class="navbar-brand" href="#">Semiclon Shop</a>
+        <a class="navbar-brand" href="<?= base_url('/') ?>">Semiclon Shop</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav me-auto mb-2 mb-md-0">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="/semiclonshop">Home</a>
+                    <a class="nav-link active" aria-current="page" href="<?= base_url('/') ?>">Home</a>
                 </li>
                 <?php if ($role === 'admin') : ?>
                     <li class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" id="dropdown-1" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Manage</a>
                         <div class="dropdown-menu" aria-labelledby="dropdown-1">
-                            <a href="<?= base_url('category') ?>" class="dropdown-item">Kategori</a>
-                            <a href="<?= base_url('product') ?>" class="dropdown-item">Produk</a>
-                            <a href="<?= base_url('/myorder') ?>" class="dropdown-item">Order</a>
-                            <a href="<?= base_url('/user') ?>" class="dropdown-item">Pengguna</a>
+                            <a href="<?= base_url('category') ?>" class="dropdown-item">Admin Kategori</a>
+                            <a href="<?= base_url('product') ?>" class="dropdown-item">Admin Produk</a>
+                            <a href="<?= base_url('/order') ?>" class="dropdown-item">Admin Order</a>
+                            <a href="<?= base_url('/user') ?>" class="dropdown-item">Admin Pengguna</a>
                         </div>
                     </li>
                 <?php endif ?>
@@ -47,7 +47,7 @@ if ($role != 'admin') {
                     </li>
                 <?php else : ?>
                     <li class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" id="dropdown-2" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?= $this->session->userdata('name') ?></a>
+                        <a href="#" class="nav-link dropdown-toggle" id="dropdown-2" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?= $this->session->userdata('role') ?></a>
                         <div class="dropdown-menu" aria-labelledby="dropdown-2">
                             <a href="<?= base_url('/profile') ?>" class="dropdown-item">Profile</a>
                             <a href="<?= base_url('/myorder') ?>" class="dropdown-item">Orders</a>

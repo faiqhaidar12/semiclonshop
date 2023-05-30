@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 29, 2023 at 11:25 AM
+-- Generation Time: May 30, 2023 at 05:42 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 7.4.33
 
@@ -81,17 +81,17 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`id`, `id_user`, `date`, `invoice`, `total`, `name`, `address`, `phone`, `status`) VALUES
-(1, 7, '2023-05-29', '720230529120946', 5800000, 'faiq', 'perumahan sinargiripeni blok A07 Wates Kulonprogo rt 35 rw 16', '089616908941', 'paid'),
-(2, 10, '2023-05-29', '1020230529122629', 8900000, 'ana', 'wates', '089616908982', 'waiting'),
-(3, 10, '2023-05-29', '1020230529122954', 2900000, 'ana', 'wates', '089616908982', 'waiting'),
-(4, 7, '2023-05-29', '720230529141304', 2900000, 'faiq', 'perumahan sinargiripeni blok A07 Wates Kulonprogo rt 35 rw 16', '089616908941', 'paid'),
-(5, 7, '2023-05-29', '720230529141317', 2900000, 'faiq', 'perumahan sinargiripeni blok A07 Wates Kulonprogo rt 35 rw 16', '089616908941', 'paid'),
-(6, 7, '2023-05-29', '720230529141353', 2900000, 'faiq', 'perumahan sinargiripeni blok A07 Wates Kulonprogo rt 35 rw 16', '089616908941', 'paid'),
-(7, 7, '2023-05-29', '720230529141401', 2900000, 'faiq', 'perumahan sinargiripeni blok A07 Wates Kulonprogo rt 35 rw 16', '089616908941', 'waiting'),
-(8, 10, '2023-05-29', '1020230529141603', 14500000, 'ana', 'wates', '089616908982', 'waiting'),
-(9, 7, '2023-05-29', '720230529142911', 3900000, 'faiq', 'perumahan sinargiripeni blok A07 Wates Kulonprogo rt 35 rw 16', '089616908941', 'waiting'),
-(10, 10, '2023-05-29', '1020230529151147', 4000000, 'ana', 'wates', '089616908982', 'waiting'),
-(11, 10, '2023-05-29', '1020230529151308', 4000000, 'ana', 'wates', '089616908982', 'waiting');
+(1, 7, '2023-05-29', '720230529120946', 5800000, 'faiq', 'perumahan sinargiripeni blok A07 Wates Kulonprogo rt 35 rw 16', '089616908941', 'delivered'),
+(2, 10, '2023-05-29', '1020230529122629', 8900000, 'ana', 'wates', '089616908982', 'delivered'),
+(3, 10, '2023-05-29', '1020230529122954', 2900000, 'ana', 'wates', '089616908982', 'cancel'),
+(4, 7, '2023-05-29', '720230529141304', 2900000, 'faiq', 'perumahan sinargiripeni blok A07 Wates Kulonprogo rt 35 rw 16', '089616908941', 'delivered'),
+(5, 7, '2023-05-29', '720230529141317', 2900000, 'faiq', 'perumahan sinargiripeni blok A07 Wates Kulonprogo rt 35 rw 16', '089616908941', 'delivered'),
+(6, 7, '2023-05-29', '720230529141353', 2900000, 'faiq', 'perumahan sinargiripeni blok A07 Wates Kulonprogo rt 35 rw 16', '089616908941', 'delivered'),
+(7, 7, '2023-05-29', '720230529141401', 2900000, 'faiq', 'perumahan sinargiripeni blok A07 Wates Kulonprogo rt 35 rw 16', '089616908941', 'cancel'),
+(8, 10, '2023-05-29', '1020230529141603', 14500000, 'ana', 'wates', '089616908982', 'cancel'),
+(9, 7, '2023-05-29', '720230529142911', 3900000, 'faiq', 'perumahan sinargiripeni blok A07 Wates Kulonprogo rt 35 rw 16', '089616908941', 'cancel'),
+(10, 10, '2023-05-29', '1020230529151147', 4000000, 'ana', 'wates', '089616908982', 'cancel'),
+(11, 10, '2023-05-29', '1020230529151308', 4000000, 'ana', 'wates', '089616908982', 'cancel');
 
 -- --------------------------------------------------------
 
@@ -117,7 +117,8 @@ INSERT INTO `orders_confirm` (`id`, `id_orders`, `account_name`, `account_number
 (1, 1, 'faiq', '0988662', 5800000, 'sudah bayar', '720230529120946-20230529155942.png'),
 (2, 4, 'faiq', '0987766', 2900000, '-', '720230529141304-20230529160150.png'),
 (3, 5, 'faiq', '0987787', 2900000, '-', '720230529141317-20230529162145.png'),
-(4, 6, 'faiq', '1231234532', 2900000, '-', '720230529141353-20230529162252.png');
+(4, 6, 'faiq', '1231234532', 2900000, '-', '720230529141353-20230529162252.png'),
+(5, 2, 'ana', '0989332', 8900000, 'sudah bayar', '1020230529122629-20230530080059.png');
 
 -- --------------------------------------------------------
 
@@ -258,7 +259,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `category`
@@ -276,7 +277,7 @@ ALTER TABLE `orders`
 -- AUTO_INCREMENT for table `orders_confirm`
 --
 ALTER TABLE `orders_confirm`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `orders_detail`

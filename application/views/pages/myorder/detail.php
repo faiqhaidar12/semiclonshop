@@ -15,7 +15,7 @@
                     </div>
                 </div>
                 <div class="card-body table-responsive">
-                    <p class="text-uppercase">Tanggal: <?= str_replace('-', '/', date("d-m-Y", strtotime($order->date))) ?></p>
+                    <p class="text-uppercase">Tanggal : <?= str_replace('-', '/', date("d-m-Y", strtotime($order->date))) ?></p>
                     <p class="text-uppercase">Nama : <?= $order->name ?></p>
                     <p class="text-uppercase">Telepon : <?= $order->phone ?></p>
                     <p class="text-uppercase">Alamat :<?= $order->address ?></p>
@@ -55,7 +55,7 @@
                 <?php endif ?>
             </div>
             <?php if (isset($order_confirm)) : ?>
-                <div class="row mb-3 mt-2">
+                <div class="row mb-3 mt-2 align-items-center">
                     <div class="col-md-8">
                         <div class="card">
                             <div class="card-header">Bukti Transfer</div>
@@ -67,8 +67,10 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4 border border-secondary rounded">
-                        <img class="rounded mx-auto d-block" src="<?= base_url("/images/confirm/$order_confirm->image") ?>" height="150" width="150" alt="bukti transfer" />
+                    <div class="col-md-4 mt-2">
+                        <div class="col-md-4 rounded">
+                            <img class="rounded border mx-auto d-block" src="<?= base_url("/images/confirm/$order_confirm->image") ?>" height="200" width="300" alt="bukti transfer" />
+                        </div>
                     </div>
                 </div>
             <?php endif ?>

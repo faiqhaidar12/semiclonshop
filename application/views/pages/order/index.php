@@ -1,11 +1,24 @@
 <main class="container">
+    <?php $this->load->view('layouts/_alert'); ?>
     <div class="row">
-        <div class="col-md-3">
-            <?php $this->load->view('layouts/_menu'); ?>
-        </div>
-        <div class="col-md-9">
+        <div class="col-md-10 mx-auto">
             <div class="card">
-                <div class="card-header">Daftar Orders</div>
+                <div class="card-header">
+                    <span>Order</span>
+                    <div class="float-end">
+                        <?= form_open(base_url('order/search'), ['method' => 'POST']) ?>
+                        <div class="input-group">
+                            <input type="text" class="form-control form-control-sm text-center" name="keyword" placeholder="Cari" value="<?= $this->session->userdata('keyword') ?>" />
+                            <div class="input-group-append mx-1">
+                                <button class="btn btn-secondary btn-sm" type="submit">
+                                    <i class="fas fa-search"></i>
+                                </button>
+                                <a href="<?= base_url('order/reset') ?>" class="btn btn-secondary btn-sm"><i class="fas fa-eraser"></i></a>
+                            </div>
+                        </div>
+                        <?= form_close() ?>
+                    </div>
+                </div>
                 <div class="card-body table-responsive">
                     <table class="table">
                         <thead>
@@ -20,7 +33,7 @@
                             <?php foreach ($content as $row) : ?>
                                 <tr>
                                     <td>
-                                        <a href="<?= base_url("/myorder/detail/$row->invoice") ?>"><strong># <?= $row->invoice ?></strong></a>
+                                        <a href="<?= base_url("/order/detail/$row->id") ?>"><strong># <?= $row->invoice ?></strong></a>
                                     </td>
                                     <td><?= str_replace('-', '/', date("d-m-Y", strtotime($row->date))) ?></td>
                                     <td>Rp<?= number_format($row->total, 0, ',', '.') ?>,-</td>
@@ -32,7 +45,7 @@
                         </tbody>
                     </table>
                 </div>
-                <nav aria-label="Page navigation example " class="mx-2">
+                <nav aria-label="Page navigation example" class="mx-2">
                     <?= $pagination ?>
                 </nav>
             </div>
